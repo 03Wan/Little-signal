@@ -1,0 +1,9 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-regular);
+  line-height: 1;
+}

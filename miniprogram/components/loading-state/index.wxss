@@ -1,0 +1,3 @@
+.loading { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--space-8); color: var(--color-text-secondary); }
+.loading__orb { width: var(--size-orb-middle); height: var(--size-orb-middle); overflow: hidden; transform: scale(0.44); }
+.loading__label { margin-top: var(--space-2); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }

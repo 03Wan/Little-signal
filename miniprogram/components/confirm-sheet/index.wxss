@@ -1,0 +1,5 @@
+.confirm-sheet__description { margin-bottom: var(--space-6); color: var(--color-text-secondary); font-size: var(--font-size-body); line-height: var(--line-height-body); }
+.confirm-sheet__actions { display: flex; flex-direction: column; align-items: stretch; }
+.confirm-sheet__actions secondary-button,
+.confirm-sheet__actions primary-button { display: block; width: 100%; }
+.confirm-sheet__actions secondary-button { margin-bottom: var(--space-2); }

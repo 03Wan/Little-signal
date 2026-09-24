@@ -1,0 +1,10 @@
+<view class="screen info-page" style="padding-top: {{pageTopPadding}}px">
+  <view class="info-page__header"><text class="info-page__back" bindtap="handleBack">‹</text><text class="info-page__title">隐私说明</text><view class="info-page__spacer" /></view>
+  <view class="info-page__symbol">◌</view>
+  <text class="info-page__lead">你们留下的内容，只属于你们。</text>
+  <view class="info-page__card">
+    <text class="info-page__copy">信号、状态、照片和时光胶囊仅对关系双方可见。小信号不会公开展示你们的记录，也不会把互动变成排名或分数。</text>
+    <view class="info-page__divider" />
+    <text class="info-page__copy">你可以在关系设置中管理连接。涉及照片或通知权限时，我们会在使用对应功能时再请求授权。</text>
+  </view>
+</view>

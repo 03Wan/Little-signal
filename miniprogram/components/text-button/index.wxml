@@ -1,0 +1,1 @@
+<button class="button {{danger ? 'button--danger' : ''}} {{disabled ? 'button--disabled' : ''}}" disabled="{{disabled}}" hover-class="button--pressed" hover-stay-time="120" bindtap="handlePress"><slot /></button>

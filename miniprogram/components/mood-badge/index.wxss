@@ -1,0 +1,13 @@
+.mood-badge { display: inline-flex; align-items: center; min-height: var(--size-hit-target); padding: 0 var(--space-3); border-radius: var(--radius-pill); background: var(--color-surface-elevated); color: var(--color-text-secondary); }
+.mood-badge__dot { width: var(--space-2); height: var(--space-2); margin-right: var(--space-2); border-radius: var(--radius-pill); background: var(--color-text-tertiary); }
+.mood-badge__label { font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.mood-badge--great .mood-badge__dot { background: var(--color-mood-happy); }
+.mood-badge--okay .mood-badge__dot { background: var(--color-mood-okay); }
+.mood-badge--tired .mood-badge__dot { background: var(--color-mood-tired); }
+.mood-badge--sad .mood-badge__dot { background: var(--color-mood-sad); }
+.mood-badge--quiet .mood-badge__dot { background: var(--color-mood-quiet); }
+.mood-badge--available .mood-badge__dot,
+.mood-badge--later .mood-badge__dot { background: var(--color-text-tertiary); }
+.mood-badge--compact { min-height: 20px; padding: 0; background: transparent; }
+.mood-badge--compact .mood-badge__dot { width: 8px; height: 8px; margin-right: var(--space-2); }
+.mood-badge--compact .mood-badge__label { color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }

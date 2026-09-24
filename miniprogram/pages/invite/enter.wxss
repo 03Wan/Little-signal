@@ -1,0 +1,14 @@
+.invite-enter { display: flex; box-sizing: border-box; min-height: 100vh; flex-direction: column; padding: calc(env(safe-area-inset-top) + var(--space-3)) var(--space-page) calc(env(safe-area-inset-bottom) + var(--space-6)); background: var(--color-bg); color: var(--color-text-primary); }
+.invite-enter__top { display: flex; height: var(--size-hit-target); align-items: center; justify-content: space-between; }
+.invite-enter__back { width: var(--size-hit-target); color: var(--color-text-secondary); font-size: var(--font-size-h1); line-height: var(--line-height-h1); }
+.invite-enter__dev { display:flex; width:var(--size-hit-target); height:var(--size-hit-target); align-items:center; justify-content:center; margin:0; padding:0; border:0; border-radius:var(--radius-pill); background:transparent; color:var(--color-text-secondary); font-size:var(--font-size-h2); line-height:var(--line-height-h2); }
+.invite-enter__dev::after { border: 0; }
+.invite-enter__body { display: flex; flex: 1; flex-direction: column; align-items: stretch; padding-top: 18vh; }
+.invite-enter__title { font-size: var(--font-size-h1); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h1); }
+.invite-enter__hint { margin-top: var(--space-2); color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.invite-enter__input { box-sizing: border-box; width: 100%; height: 60px; margin-top: var(--space-6); padding: 0 var(--space-4); border: var(--border-width-thin) solid var(--color-divider); border-radius: var(--radius-md); background: var(--color-surface); font-size: var(--font-size-h2); font-variant-numeric: tabular-nums; letter-spacing: var(--space-2); text-align: center; }
+.invite-enter__placeholder { color: var(--color-text-tertiary); font-size: var(--font-size-body); letter-spacing: 0; }
+.invite-enter__error { margin-top: var(--space-3); color: var(--color-text-secondary); font-size: var(--font-size-secondary); text-align: center; }
+.invite-enter__regenerate { align-self: center; padding: var(--space-3); color: var(--color-text-primary); font-size: var(--font-size-secondary); }
+.invite-enter primary-button { margin-top: var(--space-4); }
+@media (max-height: 700px) { .invite-enter { padding-top:var(--space-1); padding-bottom:var(--space-3); } .invite-enter__body { padding-top:8vh; } .invite-enter__input { height:52px; margin-top:var(--space-4); } }

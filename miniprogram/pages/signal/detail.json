@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "signal-orb": "/components/signal-orb/index",
+    "primary-button": "/components/primary-button/index",
+    "secondary-button": "/components/secondary-button/index",
+    "text-button": "/components/text-button/index",
+    "toast": "/components/toast/index"
+  }
+}

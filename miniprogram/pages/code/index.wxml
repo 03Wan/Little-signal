@@ -1,0 +1,17 @@
+<view class="screen code-page">
+  <view class="code-page__header">
+    <text class="code-page__back" aria-label="返回" bindtap="goBack">‹</text>
+    <text class="code-page__title">我们的暗号</text>
+    <text class="code-page__add-icon {{enabledCount >= maxEnabled ? 'code-page__add-icon--disabled' : ''}}" aria-label="创建暗号" bindtap="openCreate">＋</text>
+  </view>
+  <text class="code-page__subtitle">只有你们两个人看得见</text>
+  <view wx:if="{{loading}}" class="code-page__message">正在读取暗号…</view>
+  <view wx:elif="{{!hasRelationship}}" class="code-page__message">建立关系后，可以一起留下一些暗号。</view>
+  <view wx:elif="{{items.length === 0}}" class="code-page__message">还没有暗号</view>
+  <view wx:for="{{items}}" wx:key="id" class="code-page__item {{!item.enabled ? 'code-page__item--disabled' : ''}}">
+    <view class="code-page__item-main" data-id="{{item.id}}" bindtap="editSignal"><text class="code-page__emoji">{{item.emoji}}</text><view class="code-page__copy"><text class="code-page__name">{{item.name}}</text><text class="code-page__meaning">{{item.meaning}}</text><text class="code-page__creator">由 {{item.creatorName}} 创建</text></view></view>
+    <view class="code-page__actions"><text class="code-page__action" data-id="{{item.id}}" data-enabled="{{item.enabled}}" bindtap="toggleSignal">{{item.enabled ? '停用' : '启用'}}</text><text class="code-page__action code-page__action--danger" data-id="{{item.id}}" bindtap="askDelete">删除</text></view>
+  </view>
+  <view wx:if="{{hasRelationship && enabledCount >= maxEnabled}}" class="code-page__limit">最多保留 10 个暗号</view>
+  <confirm-sheet open="{{deleteSheetOpen}}" title="删除这个暗号？" description="删除后，这个暗号将从你们的列表中移除。" confirm-text="删除" cancel-text="保留" destructive bind:close="closeDeleteSheet" bind:cancel="closeDeleteSheet" bind:confirm="confirmDelete" />
+</view>

@@ -1,0 +1,14 @@
+.bind-page { position: relative; display: flex; box-sizing: border-box; min-height: 100vh; flex-direction: column; padding: calc(env(safe-area-inset-top) + var(--space-3)) var(--space-page) calc(env(safe-area-inset-bottom) + var(--space-6)); background: var(--color-bg); color: var(--color-text-primary); }
+.bind-page__top { display: flex; height: var(--size-hit-target); align-items: center; justify-content: space-between; }
+.bind-page__back { width: var(--size-hit-target); color: var(--color-text-secondary); font-size: var(--font-size-h1); line-height: var(--line-height-h1); }
+.bind-page__dev { display:flex; width:var(--size-hit-target); height:var(--size-hit-target); align-items:center; justify-content:center; margin:0; padding:0; border:0; border-radius:var(--radius-pill); background:transparent; color:var(--color-text-secondary); font-size:var(--font-size-h2); line-height:var(--line-height-h2); }
+.bind-page__dev::after { border: 0; }
+.bind-page__body { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; padding-bottom: var(--space-8); }
+.bind-page__title { font-size: var(--font-size-h1); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h1); }
+.bind-page__subtitle { margin-top: var(--space-2); color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.bind-page__create { display: flex; width: 196px; height: 196px; box-sizing: border-box; flex-direction: column; align-items: center; justify-content: center; margin-top: var(--space-8); border: var(--border-width-thin) solid var(--color-divider); border-radius: var(--radius-lg); background: var(--color-surface); }
+.bind-page__plus { color: var(--color-text-primary); font-size: 42px; line-height: 48px; }
+.bind-page__create-label { margin-top: var(--space-2); font-size: var(--font-size-body); font-weight: var(--font-weight-medium); line-height: var(--line-height-body); }
+.bind-page__enter { display: flex; min-height: var(--size-hit-target); align-items: center; margin-top: var(--space-3); color: var(--color-text-secondary); font-size: var(--font-size-secondary); }
+.bind-page__note { padding-bottom: var(--space-2); color: var(--color-text-tertiary); text-align: center; font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
+@media (max-height: 700px) { .bind-page__create { width: min(160px, 42vw); height: min(160px, 42vw); margin-top: var(--space-4); } .bind-page__body { padding-bottom: var(--space-2); } }

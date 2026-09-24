@@ -1,0 +1,14 @@
+<view class="bind-success">
+  <button wx:if="{{isDevelopment}}" class="bind-success__dev" aria-label="切换 Mock 用户 {{currentUser.role}}" bindtap="switchMockUser">···</button>
+  <view class="bind-success__center">
+    <view class="bind-success__connection" aria-hidden="true">
+      <view class="bind-success__line" />
+      <view class="bind-success__dot bind-success__dot--left" />
+      <view class="bind-success__dot bind-success__dot--right" />
+    </view>
+    <text wx:if="{{relationship}}" class="bind-success__names">{{userAName}} <text class="bind-success__times">×</text> {{userBName}}</text>
+    <text class="bind-success__title">连接成功</text>
+    <text class="bind-success__description">从现在开始，这里只有你们。</text>
+  </view>
+  <primary-button bind:press="goToHome"><text>发第一个信号</text></primary-button>
+</view>

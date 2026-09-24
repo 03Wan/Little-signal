@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/index",
+    "pages/bind/index",
+    "pages/invite/index",
+    "pages/invite/enter",
+    "pages/invite/confirm",
+    "pages/bind-success/index",
+    "pages/home/index",
+    "pages/send/index",
+    "pages/signal/detail",
+    "pages/mood/index",
+    "pages/history/index",
+    "pages/star/index",
+    "pages/moment/index",
+    "pages/capsule/index",
+    "pages/capsule/create",
+    "pages/capsule/detail",
+    "pages/code/index",
+    "pages/code/create",
+    "pages/monthly/index",
+    "pages/us/index",
+    "pages/settings/index",
+    "pages/settings/notification",
+    "pages/privacy/index",
+    "pages/relationship/index",
+    "pages/timeline/index",
+    "pages/unbound/index",
+    "pages/dev/ui-review/index",
+    "pages/dev/ui-review/preview"
+  ],
+  "window": {
+    "navigationBarTitleText": "小信号",
+    "navigationBarBackgroundColor": "@navBgColor",
+    "navigationBarTextStyle": "@navTextStyle",
+    "backgroundColor": "@pageBgColor",
+    "backgroundTextStyle": "@backgroundTextStyle"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "@tabColor",
+    "selectedColor": "@tabSelectedColor",
+    "backgroundColor": "@tabBgColor",
+    "borderStyle": "@tabBorderStyle",
+    "list": [
+      { "pagePath": "pages/home/index", "text": "信号" },
+      { "pagePath": "pages/history/index", "text": "足迹" },
+      { "pagePath": "pages/us/index", "text": "我们" }
+    ]
+  },
+  "style": "v2",
+  "darkmode": true,
+  "themeLocation": "theme.json"
+}

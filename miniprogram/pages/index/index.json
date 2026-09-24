@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "primary-button": "/components/primary-button/index"
+  }
+}

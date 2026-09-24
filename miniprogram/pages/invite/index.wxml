@@ -1,0 +1,24 @@
+<view class="invite-page">
+  <view class="invite-page__top"><text class="invite-page__back" bindtap="returnToBind">‹</text><button wx:if="{{isDevelopment}}" class="invite-page__dev" aria-label="切换 Mock 用户 {{currentUser.role}}" bindtap="switchMockUser">···</button></view>
+  <view wx:if="{{invite && !isExpired}}" class="invite-page__content">
+    <text class="invite-page__title">等 TA 来这里</text>
+    <view class="invite-page__qr" aria-label="Mock 邀请码二维码预览">
+      <view wx:for="{{qrRows}}" wx:key="id" class="invite-page__qr-row">
+        <view wx:for="{{item.cells}}" wx:key="id" class="invite-page__qr-cell {{item.dark ? 'invite-page__qr-cell--dark' : ''}}" />
+      </view>
+      <text class="invite-page__qr-label">二维码预览 · Mock</text>
+    </view>
+    <text class="invite-page__code">{{inviteCodeDisplay}}</text>
+    <text class="invite-page__expiry">邀请码将在 24 小时后失效</text>
+    <primary-button loading="{{isBusy}}" bind:press="shareInvite"><text>发给微信好友</text></primary-button>
+    <text class="invite-page__copy" bindtap="copyInviteCode">复制邀请码</text>
+    <text wx:if="{{isDevelopment}}" class="invite-page__dev-entry" bindtap="openCodeEntry">用当前 Mock 用户测试加入</text>
+    <text class="invite-page__waiting">等 TA 来。</text>
+  </view>
+  <view wx:elif="{{invite && isExpired}}" class="invite-page__expired">
+    <view class="invite-page__expired-symbol">◌</view>
+    <text class="invite-page__title">邀请已经失效。</text>
+    <primary-button loading="{{isBusy}}" bind:press="regenerateInvite"><text>重新生成邀请</text></primary-button>
+  </view>
+  <view wx:else class="invite-page__expired"><text class="invite-page__title">正在准备邀请…</text></view>
+</view>

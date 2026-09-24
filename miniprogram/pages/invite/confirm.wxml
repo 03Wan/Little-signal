@@ -1,0 +1,19 @@
+<view class="invite-confirm">
+  <view class="invite-confirm__top"><text class="invite-confirm__back" bindtap="handleBack">‹</text><button wx:if="{{isDevelopment}}" class="invite-confirm__dev" aria-label="切换 Mock 用户 {{currentUser.role}}" bindtap="switchMockUser">···</button></view>
+  <view wx:if="{{preview && !isExpired}}" class="invite-confirm__body">
+    <view class="invite-confirm__symbol" aria-hidden="true">◌</view>
+    <text class="invite-confirm__eyebrow">收到一个连接邀请</text>
+    <text class="invite-confirm__name">{{preview.inviterName}}</text>
+    <text class="invite-confirm__description">邀请你建立一个双人连接</text>
+    <text class="invite-confirm__expiry">有效至 {{expiresAtLabel}}</text>
+    <text wx:if="{{errorMessage}}" class="invite-confirm__error">{{errorMessage}}</text>
+    <primary-button disabled="{{!isUsable}}" loading="{{isAccepting}}" bind:press="acceptInvite"><text>确认加入</text></primary-button>
+  </view>
+  <view wx:elif="{{isExpired}}" class="invite-confirm__body">
+    <view class="invite-confirm__symbol" aria-hidden="true">◌</view>
+    <text class="invite-confirm__name">邀请已经失效。</text>
+    <text class="invite-confirm__description">请让对方重新生成一个邀请码。</text>
+    <primary-button bind:press="regenerateInvite"><text>返回建立连接</text></primary-button>
+  </view>
+  <view wx:else class="invite-confirm__body"><text class="invite-confirm__description">正在查看邀请…</text></view>
+</view>

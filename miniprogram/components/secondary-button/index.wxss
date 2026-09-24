@@ -1,0 +1,24 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-button-height);
+  padding: 0 var(--space-6);
+  border: var(--border-width-thin) solid var(--color-border-button);
+  border-radius: var(--radius-lg);
+  background: transparent;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-body);
+  transition: transform var(--duration-press) var(--ease-standard), opacity var(--duration-press) var(--ease-standard);
+}
+
+.button::after { border: 0; }
+.button--block { width: 100%; }
+.button--pressed { transform: scale(0.97); opacity: 0.92; }
+.button--disabled { color: var(--color-text-disabled); opacity: 0.72; }
+.button__spinner { width: var(--space-4); height: var(--space-4); margin-right: var(--space-2); border: var(--border-width-strong) solid currentColor; border-right-color: transparent; border-radius: var(--radius-pill); animation: button-spin var(--duration-spinner) linear infinite; }
+
+@keyframes button-spin { to { transform: rotate(360deg); } }

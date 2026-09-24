@@ -1,0 +1,8 @@
+<view wx:if="{{open}}" class="sheet-host">
+  <view class="sheet-mask" catchtap="handleMaskTap" catchtouchmove="stopPropagation" />
+  <view class="sheet" role="dialog" aria-modal="true" catchtouchstart="handleTouchStart" catchtouchmove="handleTouchMove" bindtouchend="handleTouchEnd">
+    <view class="sheet__handle" />
+    <view wx:if="{{title}}" class="sheet__title">{{title}}</view>
+    <view class="sheet__body"><slot /></view>
+  </view>
+</view>

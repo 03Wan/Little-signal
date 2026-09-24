@@ -1,0 +1,31 @@
+<view wx:if="{{authorized}}" class="review-page theme-{{theme}}">
+  <view class="review-page__hero">
+    <text class="review-page__title">UI Review</text>
+    <text class="review-page__subtitle">小信号 · Visual QA</text>
+    <view class="review-page__toolbar">
+      <view class="review-page__themes">
+        <text class="review-page__theme {{theme === 'light' ? 'is-active' : ''}}" data-theme="light" bindtap="selectTheme">Light</text>
+        <text class="review-page__theme {{theme === 'dark' ? 'is-active' : ''}}" data-theme="dark" bindtap="selectTheme">Dark</text>
+        <text class="review-page__theme {{theme === 'system' ? 'is-active' : ''}}" data-theme="system" bindtap="selectTheme">System</text>
+      </view>
+    </view>
+    <view class="review-page__device">
+      <text>Window {{device.width}} × {{device.height}}</text><text>Safe Area {{device.safeArea}}</text><text>Pixel Ratio {{device.pixelRatio}}</text>
+      <text class="review-page__device-note">保留真实窗口与安全区信息，便于检查小屏溢出。</text>
+      <text class="review-page__device-note">尺寸保持真实设备，不做假机框缩放。</text>
+    </view>
+  </view>
+  <block wx:for="{{groups}}" wx:key="name">
+    <view class="review-group">
+      <text class="review-group__title">{{item.name}}</text>
+      <view class="review-group__grid">
+        <view wx:for="{{item.items}}" wx:for-item="review" wx:key="id" class="review-card" data-id="{{review.id}}" bindtap="openReview">
+          <view class="review-card__orb">{{review.icon}}</view>
+          <view class="review-card__copy"><text class="review-card__title">{{review.title}}</text><text class="review-card__english">{{review.english}}</text></view>
+          <view class="review-card__actions"><text wx:if="{{!review.routeOnly}}" class="review-card__open">状态预览</text><text class="review-card__real" data-id="{{review.id}}" catchtap="openRealRoute">真实页面 ›</text></view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <text class="review-page__footnote">状态预览使用固定 Mock；真实页面入口打开正在运行的业务路由。</text>
+</view>

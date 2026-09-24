@@ -1,0 +1,28 @@
+<view class="onboarding">
+  <view class="onboarding__sky" aria-hidden="true">
+    <view class="onboarding__orbit" />
+    <view class="onboarding__wave onboarding__wave--one" />
+    <view class="onboarding__wave onboarding__wave--two" />
+    <view class="onboarding__star onboarding__star--one" />
+    <view class="onboarding__star onboarding__star--two" />
+    <view class="onboarding__star onboarding__star--three" />
+    <view class="onboarding__signal"><view class="onboarding__core" /></view>
+  </view>
+  <view class="onboarding__brand onboarding__brand--reveal">
+    <text class="onboarding__name">小 信 号</text>
+    <text class="onboarding__tagline">有些时候，不是想聊天</text>
+    <text class="onboarding__tagline">只是突然想到了一个人</text>
+  </view>
+  <view class="onboarding__actions">
+    <primary-button bind:press="handleStart">
+      <text>开始使用</text><text class="onboarding__arrow">→</text>
+    </primary-button>
+    <view class="onboarding__agreement">
+      <view class="onboarding__consent" role="checkbox" aria-checked="{{privacyAccepted}}" bindtap="togglePrivacyConsent">
+        <view class="onboarding__check {{privacyAccepted ? 'onboarding__check--checked' : ''}}"><text wx:if="{{privacyAccepted}}">✓</text></view>
+        <text>已阅读并同意</text>
+      </view>
+      <view class="onboarding__privacy-link" role="link" bindtap="openPrivacy">隐私说明</view>
+    </view>
+  </view>
+</view>

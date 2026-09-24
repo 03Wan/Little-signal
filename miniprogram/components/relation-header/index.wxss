@@ -1,0 +1,6 @@
+.relation-header { display: flex; align-items: center; min-height: var(--size-hit-target); }
+.relation-header__avatar { flex: none; width: var(--space-12); height: var(--space-12); margin-right: var(--space-3); overflow: hidden; border-radius: var(--radius-pill); }
+.relation-header__avatar--empty { display: flex; align-items: center; justify-content: center; background: var(--color-surface-elevated); color: var(--color-text-tertiary); }
+.relation-header__copy { min-width: 0; }
+.relation-header__title { overflow: hidden; color: var(--color-text-primary); font-size: var(--font-size-h2); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h2); text-overflow: ellipsis; white-space: nowrap; }
+.relation-header__subtitle { margin-top: var(--space-1); color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }

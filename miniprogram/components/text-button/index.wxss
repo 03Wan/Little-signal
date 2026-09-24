@@ -1,0 +1,20 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-hit-target);
+  padding: 0 var(--space-2);
+  border: 0;
+  background: transparent;
+  color: var(--color-text-button);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-secondary);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-secondary);
+  transition: opacity var(--duration-press) var(--ease-standard);
+}
+
+.button::after { border: 0; }
+.button--danger { color: var(--color-text-danger); }
+.button--pressed { opacity: 0.72; }
+.button--disabled { color: var(--color-text-disabled); }

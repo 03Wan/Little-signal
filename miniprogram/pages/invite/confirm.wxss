@@ -1,0 +1,13 @@
+.invite-confirm { display: flex; box-sizing: border-box; min-height: 100vh; flex-direction: column; padding: calc(env(safe-area-inset-top) + var(--space-3)) var(--space-page) calc(env(safe-area-inset-bottom) + var(--space-6)); background: var(--color-bg); color: var(--color-text-primary); }
+.invite-confirm__top { display: flex; height: var(--size-hit-target); align-items: center; justify-content: space-between; }
+.invite-confirm__back { width: var(--size-hit-target); color: var(--color-text-secondary); font-size: var(--font-size-h1); line-height: var(--line-height-h1); }
+.invite-confirm__dev { display:flex; width:var(--size-hit-target); height:var(--size-hit-target); align-items:center; justify-content:center; margin:0; padding:0; border:0; border-radius:var(--radius-pill); background:transparent; color:var(--color-text-secondary); font-size:var(--font-size-h2); line-height:var(--line-height-h2); }
+.invite-confirm__dev::after { border: 0; }
+.invite-confirm__body { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.invite-confirm__symbol { margin-bottom: var(--space-4); color: var(--color-signal-core); font-size: 56px; line-height: 1.2; }
+.invite-confirm__eyebrow { color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.invite-confirm__name { margin-top: var(--space-2); font-size: var(--font-size-h1); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h1); }
+.invite-confirm__description { margin-top: var(--space-3); color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.invite-confirm__expiry { margin-top: var(--space-2); color: var(--color-text-tertiary); font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
+.invite-confirm__error { margin-top: var(--space-3); color: var(--color-text-secondary); font-size: var(--font-size-secondary); }
+.invite-confirm primary-button { width: 100%; margin-top: var(--space-6); }

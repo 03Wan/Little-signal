@@ -1,0 +1,22 @@
+<view class="screen timeline" style="padding-top: {{pageTopPadding}}px">
+  <view class="timeline__header"><text class="timeline__back" bindtap="goBack">‹</text><text class="timeline__title">时间轴</text><view class="timeline__header-space" /></view>
+  <view wx:if="{{loading && !initialized}}" class="timeline__state">正在读取你们留下的信号…</view>
+  <view wx:elif="{{loadError && entries.length === 0}}" class="timeline__state"><text>暂时无法读取</text><text class="timeline__retry" bindtap="loadInitial">再试一次</text></view>
+  <view wx:elif="{{entries.length === 0 && initialized}}" class="timeline__state">还没有留下信号</view>
+  <view wx:else class="timeline__list">
+    <view wx:for="{{entries}}" wx:key="timelineId" class="timeline__entry" data-signalid="{{item.signal.id}}" bindtap="openSignal">
+      <view wx:if="{{item.startsDateGroup}}" class="timeline__date">{{item.dateLabel}}</view>
+      <view class="timeline__row">
+        <view class="timeline__time-and-icon"><text class="timeline__time">{{item.timeLabel}}</text><text class="timeline__icon">{{item.icon}}</text></view>
+        <view class="timeline__track"><view class="timeline__dot" /><view wx:if="{{index < entries.length - 1}}" class="timeline__line" /></view>
+        <view class="timeline__description">
+          <view class="timeline__sentence"><text class="timeline__sender">{{item.senderName}}</text><text class="timeline__separator">·</text><text>{{item.description}}</text></view>
+          <text wx:if="{{item.responseLabel}}" class="timeline__response">{{item.response ? '回应：' : ''}}{{item.responseLabel}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{loadingMore}}" class="timeline__footer">正在加载…</view>
+  <view wx:elif="{{loadError && entries.length > 0}}" class="timeline__footer timeline__retry" bindtap="loadMore">加载未完成，点此重试</view>
+  <view wx:elif="{{initialized && !nextCursor && entries.length > 0}}" class="timeline__footer">已经到这里了</view>
+</view>

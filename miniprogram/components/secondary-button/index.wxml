@@ -1,0 +1,4 @@
+<button class="button {{block ? 'button--block' : ''}} {{(disabled || loading) ? 'button--disabled' : ''}}" disabled="{{disabled || loading}}" hover-class="button--pressed" hover-stay-time="120" bindtap="handlePress">
+  <view wx:if="{{loading}}" class="button__spinner" />
+  <slot />
+</button>

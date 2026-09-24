@@ -1,0 +1,11 @@
+<view class="invite-enter">
+  <view class="invite-enter__top"><text class="invite-enter__back" bindtap="handleBack">‹</text><button wx:if="{{isDevelopment}}" class="invite-enter__dev" aria-label="切换 Mock 用户 {{currentUser.role}}" bindtap="switchMockUser">···</button></view>
+  <view class="invite-enter__body">
+    <text class="invite-enter__title">输入邀请码</text>
+    <text class="invite-enter__hint">输入对方分享给你的 6 位邀请码</text>
+    <input class="invite-enter__input" value="{{code}}" maxlength="6" focus="true" placeholder="邀请码" placeholder-class="invite-enter__placeholder" bindinput="handleCodeInput" />
+    <text wx:if="{{errorMessage}}" class="invite-enter__error">{{errorMessage}}</text>
+    <view wx:if="{{isExpired}}" class="invite-enter__regenerate" bindtap="regenerateInvite">重新生成邀请</view>
+    <primary-button disabled="{{code.length !== 6}}" loading="{{isChecking}}" bind:press="checkInvite"><text>查看邀请人</text></primary-button>
+  </view>
+</view>

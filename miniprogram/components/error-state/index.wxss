@@ -1,0 +1,4 @@
+.error-state { display: flex; flex-direction: column; align-items: center; padding: var(--space-12) var(--space-page); text-align: center; }
+.error-state__symbol { margin-bottom: var(--space-5); color: var(--color-text-tertiary); }
+.error-state__title { margin-bottom: var(--space-2); color: var(--color-text-primary); font-size: var(--font-size-h2); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h2); }
+.error-state__description { margin-bottom: var(--space-2); color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }

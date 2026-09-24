@@ -1,0 +1,35 @@
+<view class="screen notification-settings" style="padding-top: {{pageTopPadding}}px">
+  <view class="notification-settings__header"><text class="notification-settings__back" bindtap="handleBack">‹</text><text class="notification-settings__title">通知与勿扰</text><view class="notification-settings__spacer" /></view>
+
+  <view wx:if="{{loading}}" class="notification-settings__state">正在读取设置…</view>
+  <view wx:elif="{{loadError}}" class="notification-settings__state"><text>暂时无法读取</text><text class="notification-settings__retry" bindtap="loadSetting">再试一次</text></view>
+  <view wx:elif="{{setting}}" class="notification-settings__content {{saving ? 'notification-settings__content--saving' : ''}}">
+    <view class="notification-settings__group">
+      <view class="notification-settings__row" data-setting="signalEnabled" bindtap="toggleSetting">
+        <view class="notification-settings__row-copy"><text class="notification-settings__label">信号通知</text><text class="notification-settings__description">对方送来信号时提醒我</text></view>
+        <view class="notification-settings__toggle {{setting.signalEnabled ? 'notification-settings__toggle--on' : ''}}" role="switch" aria-checked="{{setting.signalEnabled}}"><view class="notification-settings__thumb" /></view>
+      </view>
+      <view class="notification-settings__row" data-setting="responseEnabled" bindtap="toggleSetting">
+        <view class="notification-settings__row-copy"><text class="notification-settings__label">回应通知</text><text class="notification-settings__description">我的信号收到回应时提醒我</text></view>
+        <view class="notification-settings__toggle {{setting.responseEnabled ? 'notification-settings__toggle--on' : ''}}" role="switch" aria-checked="{{setting.responseEnabled}}"><view class="notification-settings__thumb" /></view>
+      </view>
+    </view>
+
+    <view class="notification-settings__group notification-settings__quiet-group">
+      <view class="notification-settings__row notification-settings__quiet-row" data-setting="quietHoursEnabled" bindtap="toggleSetting">
+        <view class="notification-settings__row-copy"><text class="notification-settings__label">勿扰模式</text><text class="notification-settings__description">指定时段内暂不提醒</text></view>
+        <view class="notification-settings__toggle {{setting.quietHoursEnabled ? 'notification-settings__toggle--on' : ''}}" role="switch" aria-checked="{{setting.quietHoursEnabled}}"><view class="notification-settings__thumb" /></view>
+      </view>
+      <view wx:if="{{setting.quietHoursEnabled}}" class="notification-settings__times">
+        <picker class="notification-settings__time-picker" mode="time" value="{{setting.quietStart}}" data-setting="quietStart" bindchange="changeTime">
+          <view class="notification-settings__time-row"><text class="notification-settings__time-label">开始时间</text><text class="notification-settings__time-value">{{setting.quietStart}}</text><text class="notification-settings__arrow">›</text></view>
+        </picker>
+        <picker class="notification-settings__time-picker" mode="time" value="{{setting.quietEnd}}" data-setting="quietEnd" bindchange="changeTime">
+          <view class="notification-settings__time-row"><text class="notification-settings__time-label">结束时间</text><text class="notification-settings__time-value">{{setting.quietEnd}}</text><text class="notification-settings__arrow">›</text></view>
+        </picker>
+      </view>
+    </view>
+
+    <text class="notification-settings__note">勿扰期间信号仍会保存</text>
+  </view>
+</view>

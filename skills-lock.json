@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "wechat-devtools": {
+      "source": "WaterTian/wechat-devtools-mcp",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/wechat-devtools/SKILL.md",
+      "computedHash": "b5345829c462d2aada4dfe052c518249a17aebce5ea17aa731fa1a9c707626d6"
+    }
+  }
+}

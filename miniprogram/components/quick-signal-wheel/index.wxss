@@ -1,0 +1,5 @@
+.quick-wheel { position: absolute; z-index: 20; top: 50%; left: 50%; width: 0; height: 0; pointer-events: none; }
+.quick-wheel__item { position: absolute; display: flex; box-sizing: border-box; width: 76px; min-height: 76px; flex-direction: column; align-items: center; justify-content: center; padding: var(--space-1); border: var(--border-width-thin) solid var(--color-send-chip-border); border-radius: var(--radius-pill); background: var(--color-send-chip); color: var(--color-text-on-overlay); transform: translate(-50%, -50%); transition: background var(--duration-micro) var(--ease-standard), transform var(--duration-micro) var(--ease-standard), box-shadow var(--duration-micro) var(--ease-standard); }
+.quick-wheel__item--active { border-color: var(--color-signal-core); background: rgba(255,255,255,.2); box-shadow: var(--shadow-orb); transform: translate(-50%, -50%) scale(1.06); }
+.quick-wheel__icon { font-size: var(--font-size-body); line-height: var(--line-height-secondary); }
+.quick-wheel__label { margin-top: var(--space-1); font-size: var(--font-size-caption); line-height: var(--line-height-caption); white-space: nowrap; }

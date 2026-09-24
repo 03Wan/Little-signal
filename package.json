@@ -1,0 +1,13 @@
+{
+  "name": "little-signal-miniprogram",
+  "version": "0.1.0",
+  "private": true,
+  "description": "小信号微信小程序（原生 TypeScript）",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "miniprogram-api-typings": "^3.12.3",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,22 @@
+<view class="screen received" style="padding-top: {{pageTopPadding}}px">
+  <view class="received__topbar"><text class="received__sender">{{senderName}}</text><button wx:if="{{isDevelopment}}" class="received__dev-switch" style="right: {{actionInset}}px" aria-label="切换 Mock 用户 {{currentUser.role}}" bindtap="switchMockUser">···</button></view>
+  <view wx:if="{{signal}}" class="received__content">
+  <view class="received__center">
+    <signal-orb state="idle" />
+    <text class="received__message">{{signalMessage}}</text>
+    <text class="received__time">{{timeLabel}}</text>
+  </view>
+  <view wx:if="{{isReceiver && !signal.noReply && signal.status === 'received'}}" class="received__actions">
+    <primary-button loading="{{isResponding}}" bind:press="handleResponse" data-type="received"><text>接住了</text></primary-button>
+    <secondary-button disabled="{{isResponding}}" bind:press="handleResponse" data-type="me_too"><text>我也在</text></secondary-button>
+    <view class="received__extra-actions">
+      <text-button disabled="{{isResponding}}" bind:press="handleResponse" data-type="hug">抱一下</text-button>
+      <text-button disabled="{{isResponding}}" bind:press="handleResponse" data-type="later">稍后回应</text-button>
+    </view>
+  </view>
+  <view wx:elif="{{signal.noReply}}" class="received__no-reply">不用回复</view>
+  <view wx:elif="{{signal.status === 'responded'}}" class="received__response">已回应：{{responseLabel}}<text wx:if="{{isDevelopment}}" class="received__home-link" bindtap="returnHome">返回信号</text></view>
+  </view>
+  <view wx:else class="received__empty"><text>这里还没有收到信号</text><text wx:if="{{isDevelopment}}" class="received__empty-hint">切换到用户 A 发送一条 Mock 信号，再切换回来查看</text><text wx:if="{{isDevelopment}}" class="received__home-link" bindtap="returnHome">返回信号</text></view>
+  <toast visible="{{toastVisible}}" message="{{toastMessage}}" bind:close="closeToast" />
+</view>

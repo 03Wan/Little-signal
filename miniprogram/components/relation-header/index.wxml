@@ -1,0 +1,8 @@
+<view class="relation-header">
+  <image wx:if="{{avatarUrl}}" class="relation-header__avatar" src="{{avatarUrl}}" mode="aspectFill" />
+  <view wx:else class="relation-header__avatar relation-header__avatar--empty"><signal-icon name="relation" size="24" label="关系" /></view>
+  <view class="relation-header__copy">
+    <view class="relation-header__title">{{title}}</view>
+    <view wx:if="{{subtitle}}" class="relation-header__subtitle">{{subtitle}}</view>
+  </view>
+</view>

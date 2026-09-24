@@ -1,0 +1,24 @@
+<view class="mood-page" style="padding-top: {{pageTopPadding}}px">
+  <view class="mood-page__top"><text class="mood-page__back" bindtap="handleBack">‹</text><text class="mood-page__title">今天怎么样</text><view class="mood-page__top-spacer" /></view>
+  <view class="mood-page__options">
+    <view wx:for="{{options}}" wx:key="type" class="mood-page__option mood-page__option--{{item.type}} {{selectedType === item.type ? 'mood-page__option--selected' : ''}} {{isSaving ? 'mood-page__option--disabled' : ''}}" data-type="{{item.type}}" bindtap="selectMood">
+      <text class="mood-page__icon">{{item.icon}}</text>
+      <text class="mood-page__label">{{item.label}}</text>
+      <view class="mood-page__check"><text wx:if="{{selectedType === item.type}}">✓</text></view>
+    </view>
+    <view class="mood-page__option mood-page__option--custom {{selectedType === 'custom' ? 'mood-page__option--selected' : ''}} {{isSaving ? 'mood-page__option--disabled' : ''}}" bindtap="openCustomSheet">
+      <text class="mood-page__icon">✦</text>
+      <text class="mood-page__label">{{customLabel || '自定义状态'}}</text>
+      <view class="mood-page__check"><text wx:if="{{selectedType === 'custom'}}">✓</text></view>
+    </view>
+  </view>
+  <text class="mood-page__clear {{isSaving ? 'mood-page__clear--disabled' : ''}}" bindtap="clearMood">今天不设置</text>
+  <bottom-sheet open="{{customSheetOpen}}" title="写下今天的状态" bind:close="closeCustomSheet">
+    <view class="mood-page__custom-sheet">
+      <input class="mood-page__custom-input" value="{{customDraft}}" maxlength="12" placeholder="最多 12 个字" bindinput="handleCustomInput" confirm-type="done" />
+      <text class="mood-page__custom-hint">这条状态会同时显示给你和对方。</text>
+      <primary-button block="{{true}}" disabled="{{isSaving}}" loading="{{isSaving}}" bind:press="saveCustomMood">保存状态</primary-button>
+      <text class="mood-page__custom-cancel" bindtap="closeCustomSheet">取消</text>
+    </view>
+  </bottom-sheet>
+</view>

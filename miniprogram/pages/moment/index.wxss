@@ -1,0 +1,33 @@
+.screen { position: relative; box-sizing: border-box; display: flex; min-height: 100vh; flex-direction: column; padding: calc(constant(safe-area-inset-top) + var(--space-2)) var(--space-page) calc(constant(safe-area-inset-bottom) + var(--space-6)); padding: calc(env(safe-area-inset-top) + var(--space-2)) var(--space-page) calc(env(safe-area-inset-bottom) + var(--space-6)); background: var(--color-bg); color: var(--color-text-primary); }
+.moment-page__header { position: relative; display: flex; height: var(--size-hit-target); align-items: center; justify-content: space-between; }
+.moment-page__cancel { width: var(--space-12); color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.moment-page__title { position: absolute; left: 50%; transform: translateX(-50%); font-size: var(--font-size-h2); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h2); }
+.moment-page__submit-header { width: var(--space-12); color: var(--color-text-primary); text-align: right; font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.moment-page__submit-header--disabled { color: var(--color-text-disabled); opacity: 0.55; }
+.moment-page__photo-area { position: relative; margin-top: var(--space-3); }
+.moment-page__photo, .moment-page__photo-empty { display: flex; box-sizing: border-box; width: 100%; height: 40vh; max-height: 320px; min-height: 180px; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--radius-lg); }
+.moment-page__photo { background: var(--color-surface); }
+.moment-page__photo-empty { flex-direction: column; gap: var(--space-2); background: var(--color-surface-elevated); color: var(--color-text-tertiary); font-size: var(--font-size-secondary); }
+.moment-page__photo-plus { color: var(--color-text-secondary); font-size: var(--font-size-display); line-height: var(--line-height-display); }
+.moment-page__change-photo { position: absolute; right: var(--space-3); bottom: var(--space-3); padding: var(--space-2) var(--space-3); border-radius: var(--radius-pill); background: var(--color-overlay); color: var(--color-on-primary); font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
+.moment-page__section { margin-top: var(--space-4); }
+.moment-page__section-title { color: var(--color-text-primary); font-size: var(--font-size-secondary); font-weight: var(--font-weight-medium); line-height: var(--line-height-secondary); }
+.moment-page__signals { display: flex; flex-wrap: wrap; justify-content: center; row-gap: var(--space-2); margin-top: var(--space-2); }
+.moment-page__signal { display: flex; box-sizing: border-box; width: 25%; min-width: 0; min-height: var(--size-hit-target); flex-direction: column; align-items: center; justify-content: center; color: var(--color-text-tertiary); }
+.moment-page__signal--selected { color: var(--color-text-primary); }
+.moment-page__signal-icon { font-size: var(--font-size-h2); line-height: var(--line-height-h2); }
+.moment-page__signal-label { margin-top: var(--space-1); font-size: var(--font-size-caption); line-height: var(--line-height-caption); white-space: nowrap; }
+.moment-page__caption-heading { display: flex; align-items: center; justify-content: space-between; }
+.moment-page__caption-count { color: var(--color-text-tertiary); font-size: var(--font-size-caption); line-height: var(--line-height-caption); font-variant-numeric: tabular-nums; }
+.moment-page__caption { box-sizing: border-box; width: 100%; min-height: var(--size-button-height); margin-top: var(--space-1); padding: var(--space-2) 0; border-bottom: var(--border-width-thin) solid var(--color-divider); color: var(--color-text-primary); font-size: var(--font-size-body); line-height: var(--line-height-body); }
+.moment-page__expiry-options { display: flex; flex-wrap: wrap; gap: var(--space-5); margin-top: var(--space-2); }
+.moment-page__expiry { display: flex; min-height: var(--size-hit-target); align-items: center; color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.moment-page__radio { display: flex; box-sizing: border-box; width: var(--space-5); height: var(--space-5); align-items: center; justify-content: center; margin-right: var(--space-2); border: var(--border-width-thin) solid var(--color-border-button); border-radius: var(--radius-pill); }
+.moment-page__radio--selected { border-color: var(--color-text-primary); }
+.moment-page__radio--selected view { width: var(--space-2); height: var(--space-2); border-radius: var(--radius-pill); background: var(--color-text-primary); }
+.moment-page__status { margin-top: var(--space-3); color: var(--color-text-secondary); font-size: var(--font-size-caption); line-height: var(--line-height-caption); text-align: center; }
+.moment-page__status--error { color: var(--color-text-danger); }
+.moment-page__permission { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-3); padding-bottom: var(--space-3); }
+.moment-page__permission-message { margin-bottom: var(--space-2); color: var(--color-text-secondary); font-size: var(--font-size-body); line-height: var(--line-height-body); }
+.moment-page__permission text-button { align-self: center; }
+@media (max-height: 700px) { .screen { padding-top:var(--space-1); padding-bottom:var(--space-3); } .moment-page__header { height:36px; flex:none; } .moment-page__photo, .moment-page__photo-empty { height:32vh; min-height:140px; max-height:220px; } .moment-page__section { margin-top:var(--space-2); } .moment-page__signals { margin-top:var(--space-1); } .moment-page__expiry { min-height:36px; } }

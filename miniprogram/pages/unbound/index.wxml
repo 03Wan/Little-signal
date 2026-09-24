@@ -1,0 +1,6 @@
+<view class="unbound-page">
+  <view class="unbound-page__symbol" aria-hidden="true">◌</view>
+  <text class="unbound-page__title">这里暂时很安静</text>
+  <text class="unbound-page__description">连接一个重要的人以后，\n就可以向 TA 发出信号。</text>
+  <primary-button bind:press="createConnection"><text>建立新的连接</text></primary-button>
+</view>

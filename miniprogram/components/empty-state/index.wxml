@@ -1,0 +1,6 @@
+<view class="empty-state">
+  <view class="empty-state__symbol">{{symbol}}</view>
+  <view wx:if="{{title}}" class="empty-state__title">{{title}}</view>
+  <view wx:if="{{description}}" class="empty-state__description">{{description}}</view>
+  <primary-button wx:if="{{actionText}}" bind:press="handleAction">{{actionText}}</primary-button>
+</view>

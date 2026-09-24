@@ -1,0 +1,12 @@
+.screen { box-sizing: border-box; min-height: 100vh; padding: calc(env(safe-area-inset-top) + var(--space-5)) var(--space-page) calc(var(--space-8) + env(safe-area-inset-bottom)); background: var(--color-bg); color: var(--color-text-primary); }
+.code-form__title { display: block; margin-bottom: var(--space-6); font-size: var(--font-size-h1); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h1); }
+.code-form__label { display: block; margin: var(--space-5) 0 var(--space-2); color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.code-form__emoji-list { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.code-form__emoji { display: flex; width: var(--size-hit-target); height: var(--size-hit-target); align-items: center; justify-content: center; border: var(--border-width-thin) solid var(--color-divider); border-radius: var(--radius-md); background: var(--color-surface); font-size: var(--font-size-h2); }
+.code-form__emoji--selected { border-color: var(--color-text-primary); background: var(--color-surface-elevated); }
+.code-form__input, .code-form__textarea { box-sizing: border-box; width: 100%; padding: var(--space-3) var(--space-4); border: var(--border-width-thin) solid var(--color-divider); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-text-primary); font-size: var(--font-size-body); line-height: var(--line-height-body); }
+.code-form__input { min-height: var(--size-button-height); }
+.code-form__textarea { min-height: 120px; }
+.code-form__privacy { display: block; margin-top: var(--space-2); color: var(--color-text-tertiary); font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
+.code-form__save { display: flex; min-height: var(--size-button-height); align-items: center; justify-content: center; margin-top: var(--space-8); border-radius: var(--radius-pill); background: var(--color-button-primary-bg); color: var(--color-button-primary-text); font-size: var(--font-size-body); }
+.code-form__save--disabled { opacity: 0.55; }

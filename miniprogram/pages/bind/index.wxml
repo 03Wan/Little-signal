@@ -1,0 +1,16 @@
+<view class="bind-page">
+  <view class="bind-page__top">
+    <text class="bind-page__back" bindtap="handleBack">‹</text>
+    <button wx:if="{{isDevelopment}}" class="bind-page__dev" aria-label="切换 Mock 用户 {{currentUser.role}}" bindtap="switchMockUser">···</button>
+  </view>
+  <view class="bind-page__body">
+    <text class="bind-page__title">和一个重要的人连接</text>
+    <text class="bind-page__subtitle">这里不会成为另一个聊天软件</text>
+    <view class="bind-page__create" bindtap="createConnection">
+      <view class="bind-page__plus">＋</view>
+      <text class="bind-page__create-label">{{isBusy ? '正在创建邀请' : '创建连接'}}</text>
+    </view>
+    <text class="bind-page__enter" bindtap="enterInviteCode">输入邀请码</text>
+  </view>
+  <text class="bind-page__note">一次只能建立一个主要连接</text>
+</view>

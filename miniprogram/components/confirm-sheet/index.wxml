@@ -1,0 +1,10 @@
+<bottom-sheet open="{{open}}" title="{{title}}" bind:close="handleClose">
+  <view class="confirm-sheet">
+    <view wx:if="{{description}}" class="confirm-sheet__description">{{description}}</view>
+    <view class="confirm-sheet__actions">
+      <secondary-button block bind:press="handleCancel">{{cancelText}}</secondary-button>
+      <text-button wx:if="{{destructive}}" danger bind:press="handleConfirm">{{confirmText}}</text-button>
+      <primary-button wx:else block bind:press="handleConfirm">{{confirmText}}</primary-button>
+    </view>
+  </view>
+</bottom-sheet>

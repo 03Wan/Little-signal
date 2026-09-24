@@ -1,0 +1,30 @@
+<view class="screen screen--tab footprints" style="padding-top: {{pageTopPadding}}px">
+  <view class="footprints__heading">足迹</view>
+  <view class="footprints__month-control">
+    <text class="footprints__month-arrow" aria-label="查看上个月" bindtap="goToPreviousMonth">‹</text>
+    <text class="footprints__month">{{month}}</text>
+    <text class="footprints__month-arrow {{monthOffset >= 0 ? 'footprints__month-arrow--disabled' : ''}}" aria-label="查看下个月" bindtap="goToNextMonth">›</text>
+  </view>
+  <view wx:if="{{loading}}" class="footprints__state">正在整理你们留下的信号…</view>
+  <view wx:elif="{{loadError}}" class="footprints__state"><text>星图暂时无法读取</text><text class="footprints__retry" bindtap="loadSignals">再试一次</text></view>
+  <view wx:else class="footprints__sky" aria-label="{{month}} 信号星图">
+    <view wx:for="{{stars}}" wx:key="starId" class="footprints__star-hit" style="left: {{item.x}}%; top: {{item.y}}%;" data-index="{{index}}" aria-label="打开 {{item.dateLabel}} {{item.description}}" bindtap="openStar">
+      <view class="footprints__star footprints__star--{{item.tone}} {{item.responded ? 'footprints__star--responded' : ''}}" style="width: {{item.size}}px; height: {{item.size}}px; animation-delay: {{item.twinkleDelay}}s;" />
+    </view>
+    <view wx:if="{{stars.length === 0}}" class="footprints__empty">这个月还没有留下信号</view>
+  </view>
+  <view wx:if="{{!loading && !loadError}}" class="footprints__summary">{{month}} 留下了 {{pointCount}} 个点</view>
+  <view class="footprints__timeline" bindtap="openTimeline">看时间轴 <text>→</text></view>
+  <view class="footprints__monthly" bindtap="openMonthly">看看这个月 <text>→</text></view>
+  <bottom-sheet open="{{sheetOpen}}" title="信号记忆" bind:close="closeStarSheet">
+    <view wx:if="{{selectedStar}}" class="star-detail" catchtouchstart="handleDetailTouchStart" catchtouchend="handleDetailTouchEnd">
+      <view class="star-detail__sky"><view class="star-detail__point star-detail__point--{{selectedStar.tone}} {{selectedStar.responded ? 'star-detail__point--responded' : ''}}" /></view>
+      <text class="star-detail__date">{{selectedStar.dateLabel}}</text>
+      <view class="star-detail__line"><text class="star-detail__time">{{selectedStar.timeLabel}}</text><text class="star-detail__sender">{{selectedStar.senderName}}</text></view>
+      <view class="star-detail__signal"><text class="star-detail__icon">{{selectedStar.icon}}</text><text>{{selectedStar.description}}</text></view>
+      <view wx:if="{{selectedStar.response}}" class="star-detail__response"><text class="star-detail__response-label">回应</text><text>{{selectedStar.responseLabel}}</text></view>
+      <view wx:elif="{{selectedStar.signal.noReply}}" class="star-detail__response"><text>无需回复</text></view>
+      <text class="star-detail__hint">左右滑动，看看前后留下的信号</text>
+    </view>
+  </bottom-sheet>
+</view>

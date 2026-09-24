@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "signal-orb": "/components/signal-orb/index",
+    "mood-badge": "/components/mood-badge/index",
+    "signal-picker": "/components/signal-picker/index",
+    "quick-signal-wheel": "/components/quick-signal-wheel/index",
+    "toast": "/components/toast/index"
+  }
+}

@@ -1,0 +1,23 @@
+<view class="screen capsule-detail" style="padding-top: {{pageTopPadding}}px">
+  <view class="capsule-detail__header"><text class="capsule-detail__back" bindtap="goBack">‹</text><text class="capsule-detail__title">时光胶囊</text><view class="capsule-detail__space" /></view>
+  <view wx:if="{{loading}}" class="capsule-detail__state">正在读取…</view>
+  <view wx:elif="{{loadError}}" class="capsule-detail__state"><text>暂时无法读取</text><text class="capsule-detail__action" bindtap="loadCapsule">再试一次</text></view>
+  <view wx:elif="{{missing}}" class="capsule-detail__state">这枚胶囊暂时找不到</view>
+  <view wx:elif="{{status === 'locked'}}" class="capsule-detail__locked">
+    <view class="capsule-detail__orb" aria-hidden="true"><view /></view>
+    <text class="capsule-detail__message">还不能打开</text>
+    <text class="capsule-detail__date">解锁时间：{{unlockLabel}}</text>
+  </view>
+  <view wx:elif="{{status === 'unlocked'}}" class="capsule-detail__unlocked">
+    <view class="capsule-detail__orb" aria-hidden="true"><view /></view>
+    <text class="capsule-detail__message">有一个过去的信号正在等你打开</text>
+    <button class="capsule-detail__open" loading="{{opening}}" disabled="{{opening}}" bindtap="open">打开看看</button>
+  </view>
+  <view wx:elif="{{status === 'opened'}}" class="capsule-detail__body">
+    <view class="capsule-detail__orb capsule-detail__orb--opened" aria-hidden="true"><view /></view>
+    <text class="capsule-detail__opened-label">已打开 · {{openedLabel}}</text>
+    <image wx:if="{{imagePath}}" class="capsule-detail__photo" src="{{imagePath}}" mode="widthFix" />
+    <text wx:if="{{content}}" class="capsule-detail__content">{{content}}</text>
+    <text wx:if="{{!content && !imagePath}}" class="capsule-detail__empty">这枚胶囊没有留下文字或照片。</text>
+  </view>
+</view>

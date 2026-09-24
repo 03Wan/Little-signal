@@ -1,0 +1,6 @@
+<view wx:if="{{open}}" class="quick-wheel" aria-hidden="true">
+  <view wx:for="{{signals}}" wx:key="type" class="quick-wheel__item quick-wheel__item--{{item.type}} {{activeType === item.type ? 'quick-wheel__item--active' : ''}}" style="left: {{item.x}}px; top: {{item.y}}px;">
+    <text class="quick-wheel__icon">{{item.icon}}</text>
+    <text class="quick-wheel__label">{{item.label}}</text>
+  </view>
+</view>

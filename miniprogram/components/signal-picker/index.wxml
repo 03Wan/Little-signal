@@ -1,0 +1,30 @@
+<view wx:if="{{open}}" class="signal-picker-scene" role="dialog" aria-modal="true">
+  <view class="signal-picker__sky" catchtap="handleClose">
+    <view class="signal-picker__close" style="top: {{stageTop - 36}}px" catchtap="handleClose">×</view>
+    <view class="signal-picker__wheel" style="top: {{stageTop}}px">
+      <block wx:for="{{signals}}" wx:key="key">
+        <view wx:if="{{item.type !== 'thinking_of_you' && !item.customSignalId}}" class="signal-picker__orbit-item signal-picker__orbit-item--{{item.type}}" data-type="{{item.type}}" catchtap="handleSelect">
+          <text class="signal-picker__orbit-icon">{{item.icon}}</text><text class="signal-picker__orbit-label">{{item.label}}</text>
+        </view>
+      </block>
+      <view class="signal-picker__center-signal" data-type="thinking_of_you" catchtap="handleSelect">
+        <view class="signal-picker__center-orb" /><text>想到你</text>
+      </view>
+    </view>
+  </view>
+  <view class="signal-picker__sheet" catchtap="stopPropagation">
+    <view class="signal-picker__handle" /><text class="signal-picker__title">发什么？</text>
+    <scroll-view scroll-y show-scrollbar="{{false}}" class="signal-picker__scroll">
+      <view wx:for="{{signals}}" wx:key="key" class="signal-picker__item" data-type="{{item.type}}" data-customsignalid="{{item.customSignalId}}" bindtap="handleSelect">
+        <text class="signal-picker__icon">{{item.icon}}</text><text>{{item.pickerLabel}}</text>
+      </view>
+      <view class="signal-picker__divider" />
+      <view class="signal-picker__no-reply" bindtap="handleNoReplyChange">
+        <view class="signal-picker__checkbox {{noReply ? 'signal-picker__checkbox--checked' : ''}}"><text wx:if="{{noReply}}">✓</text></view>
+        <text>不需要回复</text>
+      </view>
+      <view class="signal-picker__divider" />
+      <view class="signal-picker__moment" bindtap="handleMoment"><text class="signal-picker__moment-icon">＋</text><text>瞬间</text></view>
+    </scroll-view>
+  </view>
+</view>

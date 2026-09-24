@@ -1,0 +1,53 @@
+<view class="screen relationship-settings" style="padding-top: {{pageTopPadding}}px">
+  <view class="relationship-settings__header">
+    <view class="relationship-settings__back" bindtap="handleBack"><text>‹</text></view>
+    <text class="relationship-settings__title">关系设置</text>
+    <view class="relationship-settings__spacer" />
+  </view>
+
+  <view class="relationship-settings__partner">
+    <view class="relationship-settings__orb" aria-hidden="true" />
+    <view class="relationship-settings__partner-copy">
+      <text class="relationship-settings__label">对方</text>
+      <text class="relationship-settings__name">{{partnerName}}</text>
+    </view>
+  </view>
+
+  <view class="relationship-settings__card">
+    <view class="relationship-settings__row">
+      <text>建立连接</text>
+      <text class="relationship-settings__value">{{establishedDate}}</text>
+    </view>
+    <view class="relationship-settings__row">
+      <text>关系名称</text>
+      <view class="relationship-settings__name-value" bindtap="openNameSheet"><text class="relationship-settings__value">{{relationshipName}}</text><text class="relationship-settings__edit">编辑</text></view>
+    </view>
+    <view class="relationship-settings__row">
+      <text>可见范围</text>
+      <text class="relationship-settings__value">仅关系双方</text>
+    </view>
+  </view>
+
+  <view class="relationship-settings__end-wrap">
+    <text class="relationship-settings__end" bindtap="openEndSheet">解除连接</text>
+  </view>
+
+  <bottom-sheet open="{{sheetOpen}}" title="解除连接？" bind:close="closeEndSheet">
+    <view class="relationship-settings__sheet">
+      <text class="relationship-settings__sheet-copy">解除后，你们将无法继续互发信号。</text>
+      <text class="relationship-settings__sheet-note">请选择历史记录处理方式。</text>
+      <secondary-button block disabled="{{submitting}}" bind:press="keepMyRecords">保留我的记录</secondary-button>
+      <text-button danger disabled="{{submitting}}" bind:press="deleteBothRecords">删除双方关系数据</text-button>
+      <text class="relationship-settings__sheet-cancel" bindtap="closeEndSheet">取消</text>
+    </view>
+  </bottom-sheet>
+
+  <bottom-sheet open="{{nameSheetOpen}}" title="修改关系名称" bind:close="closeNameSheet">
+    <view class="relationship-settings__name-sheet">
+      <input class="relationship-settings__name-input" value="{{relationshipNameDraft}}" maxlength="12" placeholder="给你们的关系取个名字" bindinput="handleNameInput" confirm-type="done" />
+      <text class="relationship-settings__name-hint">最多 12 个字，两个人都可以查看。</text>
+      <primary-button block disabled="{{savingName}}" loading="{{savingName}}" bind:press="saveRelationshipName">保存</primary-button>
+      <text class="relationship-settings__sheet-cancel" bindtap="closeNameSheet">取消</text>
+    </view>
+  </bottom-sheet>
+</view>

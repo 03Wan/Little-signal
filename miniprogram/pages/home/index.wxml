@@ -1,0 +1,40 @@
+<view class="screen screen--tab home" style="padding-top: {{pageTopPadding}}px">
+  <view class="home__topline"><button class="home__settings" aria-label="设置" bindtap="openSettings">⚙︎</button></view>
+  <view class="home__partner">
+    <text class="home__name">{{partner.name}}</text>
+    <view class="home__moods">
+      <view class="home__mood-control home__mood-control--mine" bindtap="openMoodSettings"><text class="home__mood-owner">我</text><mood-badge type="{{myMood.type}}" label="{{myMood.label}}" compact="{{true}}" /></view>
+      <view class="home__mood-control"><text class="home__mood-owner">对方</text><mood-badge type="{{partnerMood.type}}" label="{{partnerMood.label}}" compact="{{true}}" /></view>
+    </view>
+  </view>
+
+  <view wx:if="{{quickWheelOpen}}" class="home__wheel-backdrop" />
+  <view class="home__center {{quickWheelOpen ? 'home__center--wheel-open' : ''}}">
+    <view id="signal-orb-anchor" class="home__orb-area">
+      <view class="home__orbit-dot home__orbit-dot--one" />
+      <view class="home__orbit-dot home__orbit-dot--two" />
+      <view class="home__orbit-dot home__orbit-dot--three" />
+      <view class="home__orbit-dot home__orbit-dot--four" />
+      <signal-orb state="{{orbState}}" large="{{true}}" bind:pressstart="handleOrbPressStart" bind:pressend="handleOrbPressEnd" bind:touchmove="handleOrbTouchMove" bind:orbpress="handleOrbTap" />
+      <quick-signal-wheel open="{{quickWheelOpen}}" signals="{{signals}}" active-type="{{activeWheelType}}" />
+    </view>
+    <view class="home__prompt-action" role="button" aria-label="发个信号" bindtap="handleSingleTap">
+      <text class="home__prompt">发个信号</text>
+      <text class="home__hint">轻触 · 双击都可以</text>
+    </view>
+  </view>
+
+  <view wx:if="{{inboxSignalId}}" class="home__inbox" bindtap="openInbox">
+    <text class="home__inbox-symbol">◉</text>
+    <text class="home__inbox-label">有一个信号在这里</text>
+    <text class="home__inbox-arrow">›</text>
+  </view>
+  <view class="home__context">今天留下了 {{momentCount}} 个瞬间</view>
+  <view wx:if="{{senderFeedback}}" class="home__feedback">{{senderFeedback}}</view>
+  <view wx:if="{{lastSentSignal && lastSentSignal.status === 'failed'}}" class="home__send-error">
+    <text>还没有送出去</text>
+    <view class="home__send-error-actions"><text bindtap="retryFailedSignal">再试一次</text><text wx:if="{{failedInput}}" bindtap="deferFailedSignal">稍后发送</text></view>
+  </view>
+  <signal-picker open="{{pickerOpen}}" signals="{{pickerSignals}}" no-reply="{{noReply}}" bind:close="handlePickerClose" bind:select="handlePickerSelect" bind:noreplychange="handleNoReplyChange" bind:moment="handlePickerMoment" />
+  <toast visible="{{toastVisible}}" message="{{toastMessage}}" bind:close="handleToastClose" />
+</view>

@@ -1,0 +1,27 @@
+.screen { box-sizing: border-box; min-height: 100vh; padding: calc(env(safe-area-inset-top) + var(--space-2)) var(--space-page) calc(env(safe-area-inset-bottom) + var(--space-6)); background: var(--color-bg); color: var(--color-text-primary); }
+.monthly-page__header { display: flex; height: var(--size-hit-target); align-items: center; justify-content: space-between; }
+.monthly-page__back, .monthly-page__space { display: flex; width: var(--size-hit-target); height: var(--size-hit-target); align-items: center; color: var(--color-text-secondary); font-size: var(--font-size-display); line-height: var(--line-height-display); }
+.monthly-page__title { font-size: var(--font-size-h2); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h2); }
+.monthly-page__content { padding-top: var(--space-8); }
+.monthly-page__month { display: block; color: var(--color-text-tertiary); font-size: var(--font-size-caption); font-variant-numeric: tabular-nums; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
+.monthly-page__headline { display: block; margin-top: var(--space-3); font-size: var(--font-size-h1); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h1); text-align: center; }
+.monthly-page__summary { display: block; margin-top: var(--space-3); color: var(--color-text-secondary); font-size: var(--font-size-body); line-height: var(--line-height-body); text-align: center; }
+.monthly-page__number { color: var(--color-text-primary); font-variant-numeric: tabular-nums; font-weight: var(--font-weight-semibold); }
+.monthly-page__stats { display: flex; gap: var(--space-3); margin-top: var(--space-8); }
+.monthly-page__stat { display: flex; box-sizing: border-box; min-height: 116px; flex: 1; flex-direction: column; align-items: center; justify-content: center; border: var(--border-width-thin) solid var(--color-border-subtle); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-card); }
+.monthly-page__stat-number { font-size: var(--font-size-h1); font-weight: var(--font-weight-medium); font-variant-numeric: tabular-nums; line-height: var(--line-height-h1); }
+.monthly-page__stat-label { margin-top: var(--space-2); color: var(--color-text-secondary); font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
+.monthly-page__custom { margin-top: var(--space-5); color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); text-align: center; }
+.monthly-page__memory { display: flex; align-items: center; gap: var(--space-4); margin-top: var(--space-8); padding: var(--space-4); border: var(--border-width-thin) solid var(--color-border-subtle); border-radius: var(--radius-card); background: var(--color-surface); }
+.monthly-page__memory-star { display: flex; width: var(--space-12); height: var(--space-12); flex: none; align-items: center; justify-content: center; border-radius: var(--radius-pill); background: radial-gradient(circle, var(--color-surface-elevated), var(--color-signal-core)); box-shadow: var(--shadow-orb); font-size: var(--font-size-body-large); }
+.monthly-page__memory-copy { display: flex; min-width: 0; flex-direction: column; gap: var(--space-1); }
+.monthly-page__memory-label, .monthly-page__memory-date { color: var(--color-text-tertiary); font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
+.monthly-page__memory-text { overflow: hidden; font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); text-overflow: ellipsis; white-space: nowrap; }
+.monthly-page__timeline { display: flex; min-height: var(--size-button-height); align-items: center; justify-content: center; margin-top: var(--space-6); border: var(--border-width-thin) solid var(--color-border-button); border-radius: var(--radius-pill); color: var(--color-text-secondary); font-size: var(--font-size-secondary); }
+.monthly-page__timeline text { margin-left: var(--space-2); }
+.monthly-page__footnote { display: block; margin-top: var(--space-4); color: var(--color-text-tertiary); font-size: var(--font-size-caption); text-align: center; }
+.monthly-page__state { display: flex; min-height: 68vh; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-3); color: var(--color-text-secondary); font-size: var(--font-size-secondary); text-align: center; }
+.monthly-page__orb { display: flex; width: var(--size-signal-orb); height: var(--size-signal-orb); align-items: center; justify-content: center; margin-bottom: var(--space-3); border-radius: var(--radius-pill); background: radial-gradient(circle at 38% 35%, var(--color-surface-elevated), var(--color-signal-core)); box-shadow: var(--shadow-orb); color: var(--color-text-secondary); font-size: var(--font-size-h1); }
+.monthly-page__note { color: var(--color-text-tertiary); font-size: var(--font-size-caption); }
+.monthly-page__action { color: var(--color-text-primary); }
+@media (max-height: 700px) { .screen { padding-top:var(--space-1); padding-bottom:var(--space-3); } .monthly-page__header { height:36px; } .monthly-page__content { padding-top:var(--space-3); } .monthly-page__stats { margin-top:var(--space-4); } .monthly-page__stat { min-height:84px; } .monthly-page__memory { margin-top:var(--space-4); padding:var(--space-3); } .monthly-page__timeline { margin-top:var(--space-3); } .monthly-page__state { min-height:48vh; } }

@@ -1,0 +1,22 @@
+<view class="screen monthly-page">
+  <view class="monthly-page__header"><text class="monthly-page__back" bindtap="goBack">‹</text><text class="monthly-page__title">月度回顾</text><view class="monthly-page__space" /></view>
+  <view wx:if="{{loading && !initialized}}" class="monthly-page__state">正在整理这个月的信号…</view>
+  <view wx:elif="{{loadError}}" class="monthly-page__state"><text>暂时无法整理回顾</text><text class="monthly-page__action" bindtap="loadSummary">再试一次</text></view>
+  <view wx:elif="{{totalSignals === 0 && initialized}}" class="monthly-page__state"><view class="monthly-page__orb">◌</view><text>这个月还没有留下信号</text><text class="monthly-page__note">下一个瞬间，自然会成为回忆。</text></view>
+  <view wx:else class="monthly-page__content">
+    <text class="monthly-page__month">{{month}}</text>
+    <text class="monthly-page__headline">我们的{{month}}</text>
+    <text class="monthly-page__summary">这个月，你们留下了 <text class="monthly-page__number">{{totalSignals}}</text> 个小信号。</text>
+    <view class="monthly-page__stats">
+      <view class="monthly-page__stat"><text class="monthly-page__stat-number">{{activeDays}}</text><text class="monthly-page__stat-label">有信号的日子</text></view>
+      <view class="monthly-page__stat"><text class="monthly-page__stat-number">{{photoCount}}</text><text class="monthly-page__stat-label">照片瞬间</text></view>
+    </view>
+    <view wx:if="{{customCount > 0}}" class="monthly-page__custom">也有 {{customCount}} 个专属于你们的暗号，留在这个月里。</view>
+    <view wx:if="{{featuredEntry}}" class="monthly-page__memory">
+      <view class="monthly-page__memory-star">{{featuredEntry.icon}}</view>
+      <view class="monthly-page__memory-copy"><text class="monthly-page__memory-label">最近留下的信号</text><text class="monthly-page__memory-text">{{featuredEntry.senderName}} · {{featuredEntry.description}}</text><text class="monthly-page__memory-date">{{featuredEntry.dateLabel}}　{{featuredEntry.timeLabel}}</text></view>
+    </view>
+    <view class="monthly-page__timeline" bindtap="openTimeline">回到时间轴 <text>→</text></view>
+    <text class="monthly-page__footnote">这些小事，慢慢成为你们的记忆。</text>
+  </view>
+</view>

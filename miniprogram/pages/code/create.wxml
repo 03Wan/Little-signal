@@ -1,0 +1,11 @@
+<view class="screen code-form">
+  <text class="code-form__title">{{pageTitle}}</text>
+  <text class="code-form__label">选择图标</text>
+  <view class="code-form__emoji-list"><view wx:for="{{emojiOptions}}" wx:key="index" class="code-form__emoji {{emoji === item ? 'code-form__emoji--selected' : ''}}" data-emoji="{{item}}" bindtap="handleEmojiSelect">{{item}}</view></view>
+  <text class="code-form__label">暗号名称</text>
+  <input class="code-form__input" value="{{name}}" placeholder="给你们的暗号起个名字" bindinput="handleNameInput" />
+  <text class="code-form__label">真正含义</text>
+  <textarea class="code-form__textarea" value="{{meaning}}" placeholder="只有你们两个人知道的意思" bindinput="handleMeaningInput" />
+  <text class="code-form__privacy">真正含义仅对关系双方可见</text>
+  <view class="code-form__save {{saving ? 'code-form__save--disabled' : ''}}" bindtap="saveSignal">{{saving ? '保存中…' : '保存暗号'}}</view>
+</view>

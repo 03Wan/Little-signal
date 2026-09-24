@@ -1,0 +1,19 @@
+<view class="screen capsule-list" style="padding-top: {{pageTopPadding}}px">
+  <view class="capsule-list__header"><text class="capsule-list__back" bindtap="goBack">‹</text><text class="capsule-list__title">时光胶囊</text><text class="capsule-list__create-icon" style="margin-right: {{actionInset}}px" aria-label="创建时光胶囊" bindtap="createCapsule">＋</text></view>
+  <text class="capsule-list__intro">把此刻留给未来的你们</text>
+  <view wx:if="{{loading && !initialized}}" class="capsule-list__state">正在读取时光胶囊…</view>
+  <view wx:elif="{{loadError && capsules.length === 0}}" class="capsule-list__state"><text>暂时无法读取</text><text class="capsule-list__action" bindtap="loadCapsules">再试一次</text></view>
+  <view wx:elif="{{capsules.length === 0 && initialized}}" class="capsule-list__state">还没有时光胶囊</view>
+  <view wx:else class="capsule-list__items">
+    <view wx:for="{{capsules}}" wx:key="id" class="capsule-list__item capsule-list__item--{{item.status}}" data-id="{{item.id}}" bindtap="openCapsule">
+      <image wx:if="{{item.backgroundImage}}" class="capsule-list__background" src="{{item.backgroundImage}}" mode="aspectFill" aria-hidden="true" />
+      <view class="capsule-list__background-wash" aria-hidden="true" />
+      <view class="capsule-list__symbol"><image class="capsule-list__symbol-art" src="/assets/capsule-orb-decoration.jpg" mode="aspectFill" aria-hidden="true" /></view>
+      <view class="capsule-list__copy">
+        <text class="capsule-list__status">{{item.statusLabel}}</text>
+        <text class="capsule-list__date">{{item.status === 'locked' ? '解锁于 ' + item.unlockLabel : '封存于 ' + item.createdLabel}}</text>
+      </view>
+      <text class="capsule-list__arrow">›</text>
+    </view>
+  </view>
+</view>

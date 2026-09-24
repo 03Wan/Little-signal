@@ -1,0 +1,1 @@
+<app-tab-bar wx:if="{{!hidden}}" selected-key="{{selectedKey}}" bind:change="handleChange" />

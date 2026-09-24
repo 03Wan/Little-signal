@@ -1,0 +1,4 @@
+<view wx:if="{{active}}" class="loading" role="status" aria-live="polite">
+  <view class="loading__orb"><signal-orb state="idle" /></view>
+  <view wx:if="{{label}}" class="loading__label">{{label}}</view>
+</view>

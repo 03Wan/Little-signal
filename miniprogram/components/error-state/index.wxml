@@ -1,0 +1,6 @@
+<view class="error-state" role="alert">
+  <view class="error-state__symbol"><signal-icon name="signal" size="28" label="提示" /></view>
+  <view class="error-state__title">{{title}}</view>
+  <view wx:if="{{description}}" class="error-state__description">{{description}}</view>
+  <text-button wx:if="{{actionText}}" bind:press="handleRetry">{{actionText}}</text-button>
+</view>

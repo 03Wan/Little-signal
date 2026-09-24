@@ -1,0 +1,4 @@
+<view class="mood-badge mood-badge--{{type}} {{compact ? 'mood-badge--compact' : ''}}">
+  <view class="mood-badge__dot" />
+  <text class="mood-badge__label">{{label}}</text>
+</view>

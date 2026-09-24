@@ -1,0 +1,24 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-button-height);
+  padding: 0 var(--space-6);
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-button-primary-bg);
+  color: var(--color-button-primary-text);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-body);
+  transition: transform var(--duration-press) var(--ease-standard), opacity var(--duration-press) var(--ease-standard);
+}
+
+.button::after { border: 0; }
+.button.button--block { width: 100%; }
+.button--pressed { transform: scale(0.97); opacity: 0.92; }
+.button--disabled { color: var(--color-text-disabled); opacity: 0.72; }
+.button__spinner { width: var(--space-4); height: var(--space-4); margin-right: var(--space-2); border: var(--border-width-strong) solid currentColor; border-right-color: transparent; border-radius: var(--radius-pill); animation: button-spin var(--duration-spinner) linear infinite; }
+
+@keyframes button-spin { to { transform: rotate(360deg); } }

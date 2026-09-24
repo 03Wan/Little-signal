@@ -1,0 +1,15 @@
+<view class="icon" style="font-size: {{size}}px" role="img" aria-label="{{label}}">
+  <text wx:if="{{name === 'signal'}}">◎</text>
+  <text wx:elif="{{name === 'footprints'}}">···</text>
+  <text wx:elif="{{name === 'relation'}}">○</text>
+  <text wx:elif="{{name === 'home'}}">⌂</text>
+  <text wx:elif="{{name === 'star'}}">✦</text>
+  <text wx:elif="{{name === 'sun'}}">☼</text>
+  <text wx:elif="{{name === 'moon'}}">☾</text>
+  <text wx:elif="{{name === 'cloud'}}">☁</text>
+  <text wx:elif="{{name === 'hug'}}">◌</text>
+  <text wx:elif="{{name === 'knock'}}">··</text>
+  <text wx:elif="{{name === 'check'}}">✓</text>
+  <text wx:elif="{{name === 'close'}}">×</text>
+  <text wx:else>·</text>
+</view>

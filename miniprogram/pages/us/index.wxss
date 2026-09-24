@@ -1,0 +1,25 @@
+.screen { position: relative; box-sizing: border-box; min-height: 100vh; padding: calc(constant(safe-area-inset-top) + var(--space-4)) var(--space-page) calc(var(--size-tabbar-height) + constant(safe-area-inset-bottom) + var(--space-4)); padding: calc(env(safe-area-inset-top) + var(--space-4)) var(--space-page) calc(var(--size-tabbar-height) + env(safe-area-inset-bottom) + var(--space-4)); background: var(--color-bg); color: var(--color-text-primary); }
+.screen--tab { height: 100vh; min-height: 100vh; padding-bottom: calc(var(--size-tabbar-height) + constant(safe-area-inset-bottom) + var(--space-4)); padding-bottom: calc(var(--size-tabbar-height) + env(safe-area-inset-bottom) + var(--space-4)); }
+.us-page { display: flex; flex-direction: column; align-items: center; }
+.us-page__title { display: flex; width: 100%; min-height: var(--size-hit-target); align-items: center; justify-content: center; font-size: var(--font-size-h2); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h2); }
+.us-page__relationship { display: flex; flex-direction: column; align-items: center; margin-top: var(--space-5); }
+.us-page__orbs { position: relative; width: 136px; height: var(--space-12); }
+.us-page__orb { position: absolute; top: 0; width: var(--space-12); height: var(--space-12); border: var(--border-width-thin) solid var(--color-border-subtle); border-radius: var(--radius-pill); box-shadow: var(--shadow-orb); }
+.us-page__orb--one { left: var(--space-2); background: radial-gradient(circle at 38% 36%, var(--color-surface-elevated), var(--color-signal-core)); }
+.us-page__orb--two { right: var(--space-2); background: radial-gradient(circle at 38% 36%, var(--color-surface-elevated), var(--color-signal-blue)); }
+.us-page__names { display: flex; align-items: center; margin-top: var(--space-3); font-size: var(--font-size-body); line-height: var(--line-height-body); }
+.us-page__times { margin: 0 var(--space-3); color: var(--color-text-tertiary); }
+.us-page__days { margin-top: var(--space-2); color: var(--color-text-secondary); font-size: var(--font-size-secondary); font-variant-numeric: tabular-nums; line-height: var(--line-height-secondary); }
+.us-page__collections { display: flex; width: 100%; gap: var(--space-3); margin-top: var(--space-6); }
+.us-page__collection { display: flex; box-sizing: border-box; flex: 1; min-height: 116px; flex-direction: column; align-items: center; justify-content: center; border: var(--border-width-thin) solid var(--color-border-subtle); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-card); }
+.us-page__collection-symbol { display: flex; width: var(--space-10); height: var(--space-10); align-items: center; justify-content: center; margin-bottom: var(--space-2); border-radius: var(--radius-pill); background: var(--color-surface-elevated); color: var(--color-signal-core); font-size: var(--font-size-h1); }
+.us-page__collection-symbol--warm { color: var(--color-signal-warm); }
+.us-page__collection-name { color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.us-page__collection-count { margin-top: var(--space-1); color: var(--color-text-primary); font-size: var(--font-size-body); font-variant-numeric: tabular-nums; line-height: var(--line-height-body); }
+.us-page__links { width: 100%; margin-top: var(--space-5); padding: 0 var(--space-4); box-sizing: border-box; border: var(--border-width-thin) solid var(--color-border-subtle); border-radius: var(--radius-card); background: var(--color-surface); }
+.us-page__link { display: flex; min-height: var(--size-hit-target); align-items: center; justify-content: space-between; border-bottom: var(--border-width-thin) solid var(--color-divider); color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.us-page__link:last-child { border-bottom: 0; }
+.us-page__arrow { color: var(--color-text-tertiary); font-size: var(--font-size-h2); }
+
+@media (max-height: 900px) { .us-page__relationship { margin-top: var(--space-3); } .us-page__collections { margin-top: var(--space-4); } .us-page__collection { min-height: 104px; } .us-page__links { margin-top: var(--space-3); } }
+@media (max-height: 740px) { .us-page__relationship { margin-top: var(--space-2); } .us-page__collections { margin-top: var(--space-3); } .us-page__collection { min-height: 96px; } .us-page__links { margin-top: var(--space-2); } }

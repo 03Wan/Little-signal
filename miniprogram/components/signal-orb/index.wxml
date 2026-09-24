@@ -1,0 +1,8 @@
+<view class="orb orb--state-{{state}} {{large ? 'orb--large' : ''}} {{isPressed ? 'orb--touch-pressed' : ''}}" role="button" aria-disabled="{{state === 'disabled' || state === 'sending'}}" aria-busy="{{state === 'sending'}}" bindtap="handleTap" catchtouchstart="handleTouchStart" catchtouchmove="handleTouchMove" bindtouchend="handleTouchEnd">
+  <view class="orb__wave orb__wave--one" />
+  <view class="orb__wave orb__wave--two" />
+  <view class="orb__visual">
+    <view class="orb__glow" />
+    <image class="orb__middle" src="/assets/signal-orb-star.jpg" mode="aspectFill" aria-hidden="true" />
+  </view>
+</view>

@@ -1,0 +1,45 @@
+.screen { position: relative; box-sizing: border-box; min-height: 100vh; padding: calc(constant(safe-area-inset-top) + var(--space-4)) var(--space-page) calc(var(--size-tabbar-height) + constant(safe-area-inset-bottom) + var(--space-4)); padding: calc(env(safe-area-inset-top) + var(--space-4)) var(--space-page) calc(var(--size-tabbar-height) + env(safe-area-inset-bottom) + var(--space-4)); background: var(--color-bg); color: var(--color-text-primary); }
+.screen--tab { height: 100vh; min-height: 100vh; padding-bottom: calc(var(--size-tabbar-height) + constant(safe-area-inset-bottom) + var(--space-4)); padding-bottom: calc(var(--size-tabbar-height) + env(safe-area-inset-bottom) + var(--space-4)); }
+.footprints { display: flex; flex-direction: column; align-items: center; }
+.footprints__heading { min-height: var(--size-hit-target); font-size: var(--font-size-h2); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h2); }
+.footprints__month-control { display: flex; width: 100%; align-items: center; justify-content: space-between; margin-top: var(--space-5); }
+.footprints__month { color: var(--color-text-secondary); font-size: var(--font-size-body); font-variant-numeric: tabular-nums; line-height: var(--line-height-body); }
+.footprints__month-arrow { display: flex; width: var(--size-hit-target); height: var(--size-hit-target); align-items: center; justify-content: center; color: var(--color-text-secondary); font-size: var(--font-size-h1); }
+.footprints__month-arrow--disabled { color: var(--color-text-disabled); }
+.footprints__sky { position: relative; flex: 1; width: 100%; min-height: 160px; max-height: 42vh; margin-top: var(--space-4); overflow: hidden; }
+.footprints__star-hit { position: absolute; display: flex; width: var(--size-hit-target); height: var(--size-hit-target); align-items: center; justify-content: center; transform: translate(-50%, -50%); }
+.footprints__star { border-radius: var(--radius-pill); transition: box-shadow var(--duration-press) var(--ease-standard), opacity var(--duration-press) var(--ease-standard); animation: footprint-twinkle 1.15s ease-in-out infinite alternate; }
+.footprints__star--core { background: var(--color-signal-core); opacity: 0.68; }
+.footprints__star--warm { background: var(--color-signal-warm); opacity: 0.72; }
+.footprints__star--blue { background: var(--color-signal-blue); opacity: 0.68; }
+.footprints__star--responded { opacity: 1; box-shadow: 0 0 var(--space-3) var(--color-signal-core); }
+@keyframes footprint-twinkle {
+  from { opacity: 0.38; transform: scale(0.78); filter: brightness(0.92); }
+  to { opacity: 1; transform: scale(1.28); filter: brightness(1.2); box-shadow: 0 0 var(--space-3) var(--color-signal-core); }
+}
+.footprints__empty, .footprints__state { position: absolute; top: 50%; left: 50%; color: var(--color-text-tertiary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); text-align: center; transform: translate(-50%, -50%); }
+.footprints__state { position: relative; top: auto; left: auto; display: flex; min-height: 160px; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-3); transform: none; }
+.footprints__retry { color: var(--color-text-secondary); }
+.footprints__summary { margin-top: var(--space-4); color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.footprints__timeline { display: flex; width: 100%; min-height: var(--size-button-height); align-items: center; justify-content: center; margin-top: var(--space-4); border: var(--border-width-thin) solid var(--color-border-button); border-radius: var(--radius-pill); color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.footprints__timeline text { margin-left: var(--space-2); }
+.footprints__monthly { display:flex; min-height:var(--size-hit-target); align-items:center; justify-content:center; margin-top:var(--space-1); color:var(--color-text-tertiary); font-size:var(--font-size-caption); }
+.footprints__monthly text { margin-left:var(--space-1); }
+.star-detail { padding-bottom: var(--space-2); }
+.star-detail__sky { position: relative; display: flex; height: 112px; align-items: center; justify-content: center; margin: 0 calc(var(--space-5) * -1) var(--space-4); overflow: hidden; background: radial-gradient(ellipse at center, var(--color-surface-elevated), var(--color-surface)); }
+.star-detail__point { width: var(--space-2); height: var(--space-2); border-radius: var(--radius-pill); }
+.star-detail__point--core { background: var(--color-signal-core); }
+.star-detail__point--warm { background: var(--color-signal-warm); }
+.star-detail__point--blue { background: var(--color-signal-blue); }
+.star-detail__point--responded { box-shadow: 0 0 var(--space-6) var(--color-signal-core); }
+.star-detail__date { display: block; margin-bottom: var(--space-4); color: var(--color-text-secondary); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.star-detail__line { display: flex; align-items: baseline; gap: var(--space-4); font-size: var(--font-size-body); line-height: var(--line-height-body); }
+.star-detail__time { color: var(--color-text-tertiary); font-variant-numeric: tabular-nums; }
+.star-detail__sender { font-weight: var(--font-weight-medium); }
+.star-detail__signal, .star-detail__response { display: flex; align-items: center; margin-top: var(--space-3); font-size: var(--font-size-secondary); line-height: var(--line-height-secondary); }
+.star-detail__icon { margin-right: var(--space-3); color: var(--color-text-secondary); font-size: var(--font-size-h2); }
+.star-detail__response { gap: var(--space-2); color: var(--color-text-secondary); }
+.star-detail__response-label { color: var(--color-text-tertiary); }
+.star-detail__hint { display: block; margin-top: var(--space-6); color: var(--color-text-tertiary); font-size: var(--font-size-caption); line-height: var(--line-height-caption); text-align: center; }
+@media (max-height: 700px) { .screen--tab { padding-top:var(--space-2); } .footprints__heading { min-height:36px; } .footprints__month-control { margin-top:var(--space-1); } .footprints__sky { min-height:120px; max-height:32vh; margin-top:var(--space-2); } .footprints__summary { margin-top:var(--space-2); } .footprints__timeline { margin-top:var(--space-2); } .footprints__monthly { min-height:32px; } }
+@media (prefers-reduced-motion: reduce) { .footprints__star { animation: none; } }

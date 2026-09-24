@@ -1,0 +1,15 @@
+<view class="screen capsule-create" style="padding-top: {{pageTopPadding}}px">
+  <view class="capsule-create__header"><text class="capsule-create__cancel" bindtap="cancel">取消</text><text class="capsule-create__title">留给以后</text><text class="capsule-create__complete" style="margin-right: {{actionInset}}px" bindtap="submit">完成</text></view>
+  <text class="capsule-create__hint">写下一段话，留给未来的你们</text>
+  <textarea class="capsule-create__content" placeholder="想对未来说些什么…（选填）" value="{{content}}" bindinput="onContentInput" />
+  <view class="capsule-create__section-title">照片（选填）</view>
+  <view wx:if="{{imagePath}}" class="capsule-create__photo-wrap"><image class="capsule-create__photo" src="{{imagePath}}" mode="aspectFill" /><text class="capsule-create__remove" bindtap="removeImage">移除</text></view>
+  <view wx:else class="capsule-create__photo-add" bindtap="chooseImage"><text class="capsule-create__plus">＋</text><text>添加一张照片</text></view>
+  <view class="capsule-create__section-title capsule-create__unlock-title">打开时间</view>
+  <view class="capsule-create__pickers">
+    <picker mode="date" start="{{minDate}}" value="{{unlockDate}}" bindchange="onDateChange"><view class="capsule-create__picker">{{unlockDate || '选择日期'}}<text>›</text></view></picker>
+    <picker mode="time" value="{{unlockTime}}" bindchange="onTimeChange"><view class="capsule-create__picker">{{unlockTime}}<text>›</text></view></picker>
+  </view>
+  <text class="capsule-create__note">到设定时间后，就可以打开这枚胶囊。</text>
+  <button class="capsule-create__submit" loading="{{saving}}" disabled="{{saving || !unlockDate}}" bindtap="submit">封存这个信号</button>
+</view>

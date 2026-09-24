@@ -1,0 +1,51 @@
+<view class="screen moment-page" style="padding-top: {{pageTopPadding}}px">
+  <view class="moment-page__header">
+    <text class="moment-page__cancel" bindtap="cancelPage">取消</text>
+    <text class="moment-page__title">一个瞬间</text>
+    <text wx:if="{{sendStatus === 'sent'}}" class="moment-page__submit-header" style="margin-right: {{actionInset}}px" bindtap="returnAfterSend">完成</text>
+    <text wx:else class="moment-page__submit-header {{!imagePath || uploadStatus === 'uploading' || sendStatus === 'sending' ? 'moment-page__submit-header--disabled' : ''}}" style="margin-right: {{actionInset}}px" bindtap="sendPhotoSignal">{{sendStatus === 'failed' || uploadStatus === 'failed' ? '再试一次' : '发送'}}</text>
+  </view>
+
+  <view class="moment-page__photo-area">
+    <image wx:if="{{imagePath}}" class="moment-page__photo" src="{{imagePath}}" mode="aspectFill" bindtap="previewPhoto" />
+    <view wx:else class="moment-page__photo-empty" bindtap="choosePhoto"><text class="moment-page__photo-plus">＋</text><text>选择一张照片</text></view>
+    <text wx:if="{{imagePath && !uploadedMomentId}}" class="moment-page__change-photo" bindtap="choosePhoto">更换照片</text>
+  </view>
+
+  <view class="moment-page__section">
+    <text class="moment-page__section-title">给它一个信号</text>
+    <view class="moment-page__signals">
+      <view wx:for="{{signalOptions}}" wx:key="type" class="moment-page__signal {{signalType === item.type ? 'moment-page__signal--selected' : ''}}" data-type="{{item.type}}" bindtap="selectSignal">
+        <text class="moment-page__signal-icon">{{item.icon}}</text><text class="moment-page__signal-label">{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="moment-page__section">
+    <view class="moment-page__caption-heading"><text class="moment-page__section-title">写一句话</text><text class="moment-page__caption-count">{{captionCount}} / 20</text></view>
+    <input class="moment-page__caption" value="{{caption}}" maxlength="20" disabled="{{uploadStatus === 'uploading' || uploadedMomentId || sendStatus === 'sent'}}" placeholder="想让你也看到。" bindinput="handleCaptionInput" />
+  </view>
+
+  <view class="moment-page__section">
+    <text class="moment-page__section-title">保存方式</text>
+    <view class="moment-page__expiry-options">
+      <view wx:for="{{expireOptions}}" wx:key="type" class="moment-page__expiry" data-type="{{item.type}}" bindtap="selectExpireType">
+        <view class="moment-page__radio {{expireType === item.type ? 'moment-page__radio--selected' : ''}}"><view wx:if="{{expireType === item.type}}" /></view><text>{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{uploadStatus === 'uploading'}}" class="moment-page__status">正在上传照片…</view>
+  <view wx:if="{{uploadStatus === 'failed'}}" class="moment-page__status moment-page__status--error">照片还没有上传，照片和填写内容已保留，可以再试一次。</view>
+  <view wx:if="{{sendStatus === 'sending'}}" class="moment-page__status">正在送出照片信号…</view>
+  <view wx:if="{{sendStatus === 'failed'}}" class="moment-page__status moment-page__status--error">照片已经准备好，信号还没有送出去。</view>
+  <view wx:if="{{sendStatus === 'sent'}}" class="moment-page__status">照片信号已经送出</view>
+
+  <bottom-sheet open="{{permissionDenied}}" title="无法访问相册" bind:close="leavePermissionPage">
+    <view class="moment-page__permission">
+      <text class="moment-page__permission-message">无法访问相册，因此暂时不能发送照片信号。普通信号仍可正常使用。</text>
+      <primary-button block bind:press="authorizeAlbum">去授权</primary-button>
+      <text-button bind:press="leavePermissionPage">返回</text-button>
+    </view>
+  </bottom-sheet>
+</view>
